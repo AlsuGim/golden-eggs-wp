@@ -15,7 +15,8 @@ Template Name: Home
                             <li class="top-menu__item"><a href="#about">о ресторане</a> </li>
                             <li class="top-menu__item"><a href="#team">команда</a> </li>
                             <li class="top-menu__item"><a href="#order">заказать</a> </li>
-                            <li class="logo"><img src="<?php bloginfo('template_url'); ?>/assets/img/logo.png"></li>
+                            <?php the_custom_logo(); ?>
+                            <!-- <li class="logo"><img src="<?php bloginfo('template_url'); ?>/assets/img/logo.png"></li> -->
                             <li class="top-menu__item"><a href="#menu">меню</a> </li>
                             <li class="top-menu__item"><a href="#events">мероприятия</a> </li>
                             <li class="top-menu__item"><a href="#contacts">контакты</a> </li>
@@ -98,6 +99,9 @@ Template Name: Home
                 <div class="order__text">
                     <h2>Заказать столик</h2>
                     <form action="" class="order-form">
+                        <?php echo do_shortcode('[contact-form-7 id="25" title="Без названия"]') ?>
+
+                        <!-- 
                         <input type="text" placeholder="Имя" required>
                         <input type="text" placeholder="Email" required>
                         <input type="text" placeholder="Телефон" required>
@@ -111,7 +115,9 @@ Template Name: Home
                                 <option value="50-100">50-100</option>
                             </select>
                         </div>
+
                         <input type="text" placeholder="Дата (дата/месяц)" required>
+
                         <div class="order__select">
                             <select required>
                                 <option value="">Время</option>
@@ -120,7 +126,8 @@ Template Name: Home
                                 <option value="18:00-23:00">18:00-23:00</option>
                             </select>
                         </div>
-                        <button type="submit">Оформить заказ</button>
+                        <button type="submit">Оформить заказ</button> -->
+
                     </form>
                 </div>
                 <div class="order__img">
@@ -130,7 +137,7 @@ Template Name: Home
             </div>
             <div class="container">
                 <div class="order__contacts">
-                    Пн - Пт: <strong>8 - 22</strong>, Сб - Вс: <strong>9 - 23</strong>, Телефон:<a href="tel:+380987291367"> +38098 729 13 67</a>/<a href="tel:+380974587879">+38097 458 78 79</a>
+                    Пн - Пт: <strong>8 - 22</strong>, Сб - Вс: <strong>9 - 23</strong>, Телефон:<a href="<?php the_field('phone'); ?>"><?php the_field('phone'); ?> </a>/<a href="<?php the_field('phone2'); ?>"><?php the_field('phone2'); ?></a>
                 </div>
             </div>
         </section>
@@ -159,40 +166,6 @@ Template Name: Home
                         </div>
                     </div>
                     <!--end slide-->
-
-                    <!-- 
-                    <div class="swiper-slide spec__slide">
-                        <div class="container spec__slid-container">
-                            <div class="spec__img">
-                                <img src="<?php bloginfo('template_url'); ?>/assets/img/slide2.jpg" alt="">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="spec__text">
-                                <h2>Утиные истории</h2>
-                                <p class="intro">Утиные ножки здесь маринуют с травами, запекают, а потом тушат, пока мясо не приобретет нежную текстуру. </p>
-                                <p> К утке подают красную капусту, томлёную в красном вине, а также толчёный картофель со шкварками. Фермерскую утиную грудку обжаривают и подают с соусом демиглас и вишнёвым кули, а также с нежным картофельным гратеном, запечённым со сливками, тимьяном и сыром пармезан. </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide spec__slide">
-                        <div class="container spec__slid-container">
-                            <div class="spec__img">
-                                <img src="<?php bloginfo('template_url'); ?>/assets/img/slide1.jpg" alt="">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="spec__text">
-                                <h2>Golden egg2</h2>
-                                <p class="intro">Невероятно красивый десерт Пирожное "Golden Egg".
-                                    3D пирожное в форме яйца в гнёздышке. </p>
-                                <p>Узнать, каково золото на вкус, приглашаем в наш ресторан. Темный бельгийский шоколад, Амаретто, мусс мята-лемонграсс, центр морковь-маракуйя — удержаться почти невозможно. </p>
-                            </div>
-
-                        </div>
-                    </div> -->
-
-
 
                 </div>
                 <div class="swiper-pagination spec__pagination">
@@ -458,7 +431,7 @@ Template Name: Home
             </div>
         </div>
         <div class="container events__contact">
-            По вопросам частных мероприятий звоните: <a href="tel:+38098 729 13 67">+38098 729 13 67</a> / <a href="tel:+38097 458 78 79">+38097 458 78 79</a> или используйте контактную форму.
+            По вопросам частных мероприятий звоните: <a href="<?php the_field('phone'); ?>"><?php the_field('phone'); ?> </a>/<a href="<?php the_field('phone2'); ?>"><?php the_field('phone2'); ?></a> или используйте контактную форму.
         </div>
     </section>
 
@@ -469,7 +442,10 @@ Template Name: Home
             Вы можете оставить нам сообщение через форму ниже, или любым другим, удобным вам способом
         </p>
         <form action="" class="container contacts__form">
-            <input type="text" placeholder="Имя" required>
+
+            <?php echo do_shortcode('[contact-form-7 id="23" title="Контактная форма"]') ?>
+
+            <!-- <input type="text" placeholder="Имя" required>
             <input type="email" placeholder="Email" required>
             <input type="text" placeholder="Телефон" required>
             <textarea placeholder="Сообщение"></textarea>
@@ -499,7 +475,7 @@ Template Name: Home
 
                 </div>
                 <button type="submit"> Отправить сообщение</button>
-            </div>
+            </div> -->
         </form>
     </section>
 

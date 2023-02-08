@@ -112,12 +112,13 @@ section p {
   margin-bottom: 40px;
 }
 
-.contacts__form {
+.contacts__form, .wpcf7, p{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
+
 .contacts__form input,
 .contacts__form textarea {
   width: calc(33% - 16px);
@@ -147,13 +148,17 @@ section p {
   resize: none;
 }
 
-.contacts__data-submit {
+.contacts__data-submit, p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 0 8px;
+}
+.contacts__data-submit p{
+  font-weight: 700;
+  font-size: 12px;
 }
 .contacts__data-submit button {
   width: 50%;
@@ -681,6 +686,13 @@ footer a {
   outline: none;
   border-radius: 5px;
   appearance: none;
+  
+}
+.order__select{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 .order-form .order__select select:not(:valid) {
   color: rgba(51, 51, 51, 0.5);
